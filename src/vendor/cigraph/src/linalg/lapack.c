@@ -514,7 +514,7 @@ igraph_error_t igraph_lapack_dsyevr(const igraph_matrix_t *A,
     igraphdsyevr_(&jobz, &range, &uplo, &n, &MATRIX(Acopy, 0, 0), &lda,
                   &vl, &vu, &il, &iu, &abstol, &m, VECTOR(*myvalues),
                   vectors ? &MATRIX(*vectors, 0, 0) : 0, &ldz, VECTOR(mysupport),
-                  VECTOR(work), &lwork, VECTOR(iwork), &liwork, &info);
+                  VECTOR(work), &lwork, VECTOR(iwork), &liwork, &info, 1, 1, 1);
 
     if (info != 0) {
         IGRAPH_ERROR("Invalid argument to dsyevr in workspace query.", IGRAPH_EINVAL);
@@ -528,7 +528,7 @@ igraph_error_t igraph_lapack_dsyevr(const igraph_matrix_t *A,
     igraphdsyevr_(&jobz, &range, &uplo, &n, &MATRIX(Acopy, 0, 0), &lda,
                   &vl, &vu, &il, &iu, &abstol, &m, VECTOR(*myvalues),
                   vectors ? &MATRIX(*vectors, 0, 0) : 0, &ldz, VECTOR(mysupport),
-                  VECTOR(work), &lwork, VECTOR(iwork), &liwork, &info);
+                  VECTOR(work), &lwork, VECTOR(iwork), &liwork, &info, 1, 1, 1);
 
     if (info != 0) {
         IGRAPH_ERROR("Invalid argument to dsyevr in calculation.", IGRAPH_EINVAL);
@@ -672,7 +672,7 @@ igraph_error_t igraph_lapack_dgeev(const igraph_matrix_t *A,
                  VECTOR(*myreal), VECTOR(*myimag),
                  vectorsleft  ? &MATRIX(*vectorsleft, 0, 0) : &dummy, &ldvl,
                  vectorsright ? &MATRIX(*vectorsright, 0, 0) : &dummy, &ldvr,
-                 VECTOR(work), &lwork, info);
+                 VECTOR(work), &lwork, info, 1, 1);
 
     lwork = (int) VECTOR(work)[0];
     IGRAPH_CHECK(igraph_vector_resize(&work, lwork));
@@ -681,7 +681,7 @@ igraph_error_t igraph_lapack_dgeev(const igraph_matrix_t *A,
                  VECTOR(*myreal), VECTOR(*myimag),
                  vectorsleft  ? &MATRIX(*vectorsleft, 0, 0) : &dummy, &ldvl,
                  vectorsright ? &MATRIX(*vectorsright, 0, 0) : &dummy, &ldvr,
-                 VECTOR(work), &lwork, info);
+                 VECTOR(work), &lwork, info, 1, 1);
 
     if (*info < 0) {
         IGRAPH_ERROR("Cannot calculate eigenvalues (dgeev).", IGRAPH_ELAPACK);
@@ -938,7 +938,7 @@ igraph_error_t igraph_lapack_dgeevx(igraph_lapack_dgeevx_balance_t balance,
                   ilo, ihi, VECTOR(*myscale), abnrm,
                   rconde ? VECTOR(*rconde) : &dummy,
                   rcondv ? VECTOR(*rcondv) : &dummy,
-                  VECTOR(work), &lwork, VECTOR(iwork), info);
+                  VECTOR(work), &lwork, VECTOR(iwork), info, 1, 1, 1, 1);
 
     lwork = (int) VECTOR(work)[0];
     IGRAPH_CHECK(igraph_vector_resize(&work, lwork));
@@ -950,7 +950,7 @@ igraph_error_t igraph_lapack_dgeevx(igraph_lapack_dgeevx_balance_t balance,
                   ilo, ihi, VECTOR(*myscale), abnrm,
                   rconde ? VECTOR(*rconde) : &dummy,
                   rcondv ? VECTOR(*rcondv) : &dummy,
-                  VECTOR(work), &lwork, VECTOR(iwork), info);
+                  VECTOR(work), &lwork, VECTOR(iwork), info, 1, 1, 1, 1);
 
     if (*info < 0) {
         IGRAPH_ERROR("Cannot calculate eigenvalues (dgeev).", IGRAPH_ELAPACK);

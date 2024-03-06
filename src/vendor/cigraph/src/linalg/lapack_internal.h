@@ -144,38 +144,41 @@ __BEGIN_DECLS
     #define igraph_dlamc5_  dlamc5_
 #endif
 
-int igraphdgetrf_(int *m, int *n, double *a, int *lda, int *ipiv,
+void igraphdgetrf_(int *m, int *n, double *a, int *lda, int *ipiv,
                   int *info);
-int igraphdgetrs_(char *trans, int *n, int *nrhs, double *a,
+void igraphdgetrs_(char *trans, int *n, int *nrhs, double *a,
                   int *lda, int *ipiv, double *b, int *ldb,
                   int *info);
-int igraphdgesv_(int *n, int *nrhs, double *a, int *lda,
+void igraphdgesv_(int *n, int *nrhs, double *a, int *lda,
                  int *ipiv, double *b, int *ldb, int *info);
 
 double igraphdlapy2_(double *x, double *y);
 
-int igraphdsyevr_(char *jobz, char *range, char *uplo, int *n,
+void igraphdsyevr_(char *jobz, char *range, char *uplo, int *n,
                   double *a, int *lda, double *vl,
                   double *vu, int * il, int *iu,
                   double *abstol, int *m, double *w,
                   double *z, int *ldz, int *isuppz,
                   double *work, int *lwork, int *iwork,
-                  int *liwork, int *info);
+                  int *liwork, int *info,
+		  int c1, int c2, int c3);
 
-int igraphdgeev_(char *jobvl, char *jobvr, int *n, double *a,
+void igraphdgeev_(char *jobvl, char *jobvr, int *n, double *a,
                  int *lda, double *wr, double *wi,
                  double *vl, int *ldvl, double *vr, int *ldvr,
-                 double *work, int *lwork, int *info);
+                 double *work, int *lwork, int *info,
+		 int c1, int c2);
 
-int igraphdgeevx_(char *balanc, char *jobvl, char *jobvr, char *sense,
+void igraphdgeevx_(char *balanc, char *jobvl, char *jobvr, char *sense,
                   int *n, double *a, int *lda, double *wr,
                   double *wi, double *vl, int *ldvl,
                   double *vr, int *ldvr, int *ilo, int *ihi,
                   double *scale, double *abnrm,
                   double *rconde, double *rcondv,
-                  double *work, int *lwork, int *iwork, int *info);
+                  double *work, int *lwork, int *iwork, int *info,
+		  int c1, int c2, int c3, int c4);
 
-int igraphdgehrd_(int *n, int *ilo, int *ihi, double *A, int *lda,
+void igraphdgehrd_(int *n, int *ilo, int *ihi, double *A, int *lda,
                   double *tau, double *work, int *lwork,
                   int *info);
 
