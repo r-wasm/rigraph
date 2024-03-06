@@ -13,9 +13,9 @@ c
      &           tnaupd, tnaup2, tnaitr, tneigh, tngets, tnapps, tnconv,
      &           tcaupd, tcaup2, tcaitr, tceigh, tcgets, tcapps, tcconv,
      &           tmvopx, tmvbx, tgetv0, titref, trvec
-      common /timing/ 
-     &           nopx, nbx, nrorth, nitref, nrstrt,
-     &           tsaupd, tsaup2, tsaitr, tseigt, tsgets, tsapps, tsconv,
-     &           tnaupd, tnaup2, tnaitr, tneigh, tngets, tnapps, tnconv,
-     &           tcaupd, tcaup2, tcaitr, tceigh, tcgets, tcapps, tcconv,
-     &           tmvopx, tmvbx, tgetv0, titref, trvec
+c      common /timing/ 
+c     &           nopx, nbx, nrorth, nitref, nrstrt,
+c     &           tsaupd, tsaup2, tsaitr, tseigt, tsgets, tsapps, tsconv,
+c     &           tnaupd, tnaup2, tnaitr, tneigh, tngets, tnapps, tnconv,
+c     &           tcaupd, tcaup2, tcaitr, tceigh, tcgets, tcapps, tcconv,
+c     &           tmvopx, tmvbx, tgetv0, titref, trvec
